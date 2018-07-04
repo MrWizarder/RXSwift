@@ -2,6 +2,52 @@
 import RxSwift
 
 //
+example(of: "just, of, from") {
+    
+    // 1
+    let one = 1
+    let two = 2
+    let three = 3
+    
+    // 2
+    let observable: Observable<Int> = Observable<Int>.just(one)
+    let observable2 = Observable.of(one, two, three)
+    
+    let observable3 = Observable.of([one, two, three])
+    let observable4 = Observable.from([one, two, three])
+}
+
+let observer = NotificationCenter.default.addObserver(
+    forName: .UIKeyboardDidChangeFrame,
+    object: nil,
+    queue: nil
+) { notification in
+    // Handle receiving notification
+}
+
+
+let sequence = 0..<3
+var iterator = sequence.makeIterator()
+while let n = iterator.next() {
+    print(n)
+}
+
+
+
+example(of: "subscribe") {
+    
+    let one = 1
+    let two = 2
+    let three = 3
+    
+    let observable = Observable.of(one, two, three)
+    observable.subscribe { event in
+        print(event)
+    }
+}
+
+
+
 
 /*:
  Copyright (c) 2014-2017 Razeware LLC
